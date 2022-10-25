@@ -29,3 +29,5 @@ const test = async () => {
 };
 
 test().then(console.log);
+
+// not sure how to use getBalances method in contract.

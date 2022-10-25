@@ -1,0 +1,1038 @@
+{
+  "contractName": "ERC20",
+  "abi": [
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "account",
+          "type": "address"
+        }
+      ],
+      "name": "balanceOf",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    }
+  ],
+  "metadata": "{\"compiler\":{\"version\":\"0.8.17+commit.8df45f5f\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[{\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\"}],\"name\":\"balanceOf\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"}],\"devdoc\":{\"kind\":\"dev\",\"methods\":{},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"project:/contracts/TokenBalances.sol\":\"ERC20\"},\"evmVersion\":\"london\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"project:/contracts/TokenBalances.sol\":{\"keccak256\":\"0xb856b500623a65ee89dba98df52ee6db887fc9642cd778eee4b7f896f5b47d70\",\"urls\":[\"bzz-raw://c7ec6b82b11c27ef54e8e26e2043c3dd205727e9a4cef6ed7c65ca77ff17687d\",\"dweb:/ipfs/QmfBQkpAdnFQ44uDKHwJPwKL2m1YYr6ELmwjDa92MoN5xn\"]}},\"version\":1}",
+  "bytecode": "0x",
+  "deployedBytecode": "0x",
+  "immutableReferences": {},
+  "generatedSources": [],
+  "deployedGeneratedSources": [],
+  "sourceMap": "",
+  "deployedSourceMap": "",
+  "source": "pragma solidity ^0.8.3;\r\n\r\ninterface ERC20 {\r\n    function balanceOf(address account) external view returns (uint256);\r\n}\r\n\r\ncontract TokenBalances {\r\n\r\n    struct Amount {\r\n        address token;\r\n        uint256 balance;\r\n    }\r\n\r\n    function getBalances(address walletAddress, address[] memory tokenAddresses) public view returns (Amount[] memory) {\r\n        Amount[] memory tokenAmounts;\r\n        for (uint64 i = 0; i < tokenAddresses.length; i++) {\r\n            address token = tokenAddresses[i];\r\n            uint256 balance = ERC20(token).balanceOf(walletAddress);\r\n            Amount memory tokenAmount = Amount(token, balance);\r\n            tokenAmounts[i] = tokenAmount; \r\n        }\r\n        return tokenAmounts;\r\n    }\r\n}",
+  "sourcePath": "C:\\Users\\user\\Documents\\Interviews\\Switcheo\\code-challenge\\src\\problem5\\contracts\\TokenBalances.sol",
+  "ast": {
+    "absolutePath": "project:/contracts/TokenBalances.sol",
+    "exportedSymbols": {
+      "ERC20": [
+        33
+      ],
+      "TokenBalances": [
+        102
+      ]
+    },
+    "id": 103,
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 25,
+        "literals": [
+          "solidity",
+          "^",
+          "0.8",
+          ".3"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "0:23:1"
+      },
+      {
+        "abstract": false,
+        "baseContracts": [],
+        "canonicalName": "ERC20",
+        "contractDependencies": [],
+        "contractKind": "interface",
+        "fullyImplemented": false,
+        "id": 33,
+        "linearizedBaseContracts": [
+          33
+        ],
+        "name": "ERC20",
+        "nameLocation": "37:5:1",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "functionSelector": "70a08231",
+            "id": 32,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "balanceOf",
+            "nameLocation": "59:9:1",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 28,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 27,
+                  "mutability": "mutable",
+                  "name": "account",
+                  "nameLocation": "77:7:1",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 32,
+                  "src": "69:15:1",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 26,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "69:7:1",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "68:17:1"
+            },
+            "returnParameters": {
+              "id": 31,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 30,
+                  "mutability": "mutable",
+                  "name": "",
+                  "nameLocation": "-1:-1:-1",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 32,
+                  "src": "109:7:1",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 29,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "109:7:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "108:9:1"
+            },
+            "scope": 33,
+            "src": "50:68:1",
+            "stateMutability": "view",
+            "virtual": false,
+            "visibility": "external"
+          }
+        ],
+        "scope": 103,
+        "src": "27:94:1",
+        "usedErrors": []
+      },
+      {
+        "abstract": false,
+        "baseContracts": [],
+        "canonicalName": "TokenBalances",
+        "contractDependencies": [],
+        "contractKind": "contract",
+        "fullyImplemented": true,
+        "id": 102,
+        "linearizedBaseContracts": [
+          102
+        ],
+        "name": "TokenBalances",
+        "nameLocation": "134:13:1",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "canonicalName": "TokenBalances.Amount",
+            "id": 38,
+            "members": [
+              {
+                "constant": false,
+                "id": 35,
+                "mutability": "mutable",
+                "name": "token",
+                "nameLocation": "190:5:1",
+                "nodeType": "VariableDeclaration",
+                "scope": 38,
+                "src": "182:13:1",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_address",
+                  "typeString": "address"
+                },
+                "typeName": {
+                  "id": 34,
+                  "name": "address",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "182:7:1",
+                  "stateMutability": "nonpayable",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  }
+                },
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 37,
+                "mutability": "mutable",
+                "name": "balance",
+                "nameLocation": "214:7:1",
+                "nodeType": "VariableDeclaration",
+                "scope": 38,
+                "src": "206:15:1",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                },
+                "typeName": {
+                  "id": 36,
+                  "name": "uint256",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "206:7:1",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  }
+                },
+                "visibility": "internal"
+              }
+            ],
+            "name": "Amount",
+            "nameLocation": "164:6:1",
+            "nodeType": "StructDefinition",
+            "scope": 102,
+            "src": "157:72:1",
+            "visibility": "public"
+          },
+          {
+            "body": {
+              "id": 100,
+              "nodeType": "Block",
+              "src": "352:378:1",
+              "statements": [
+                {
+                  "assignments": [
+                    54
+                  ],
+                  "declarations": [
+                    {
+                      "constant": false,
+                      "id": 54,
+                      "mutability": "mutable",
+                      "name": "tokenAmounts",
+                      "nameLocation": "379:12:1",
+                      "nodeType": "VariableDeclaration",
+                      "scope": 100,
+                      "src": "363:28:1",
+                      "stateVariable": false,
+                      "storageLocation": "memory",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_array$_t_struct$_Amount_$38_memory_ptr_$dyn_memory_ptr",
+                        "typeString": "struct TokenBalances.Amount[]"
+                      },
+                      "typeName": {
+                        "baseType": {
+                          "id": 52,
+                          "nodeType": "UserDefinedTypeName",
+                          "pathNode": {
+                            "id": 51,
+                            "name": "Amount",
+                            "nameLocations": [
+                              "363:6:1"
+                            ],
+                            "nodeType": "IdentifierPath",
+                            "referencedDeclaration": 38,
+                            "src": "363:6:1"
+                          },
+                          "referencedDeclaration": 38,
+                          "src": "363:6:1",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_struct$_Amount_$38_storage_ptr",
+                            "typeString": "struct TokenBalances.Amount"
+                          }
+                        },
+                        "id": 53,
+                        "nodeType": "ArrayTypeName",
+                        "src": "363:8:1",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_array$_t_struct$_Amount_$38_storage_$dyn_storage_ptr",
+                          "typeString": "struct TokenBalances.Amount[]"
+                        }
+                      },
+                      "visibility": "internal"
+                    }
+                  ],
+                  "id": 55,
+                  "nodeType": "VariableDeclarationStatement",
+                  "src": "363:28:1"
+                },
+                {
+                  "body": {
+                    "id": 96,
+                    "nodeType": "Block",
+                    "src": "453:240:1",
+                    "statements": [
+                      {
+                        "assignments": [
+                          68
+                        ],
+                        "declarations": [
+                          {
+                            "constant": false,
+                            "id": 68,
+                            "mutability": "mutable",
+                            "name": "token",
+                            "nameLocation": "476:5:1",
+                            "nodeType": "VariableDeclaration",
+                            "scope": 96,
+                            "src": "468:13:1",
+                            "stateVariable": false,
+                            "storageLocation": "default",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_address",
+                              "typeString": "address"
+                            },
+                            "typeName": {
+                              "id": 67,
+                              "name": "address",
+                              "nodeType": "ElementaryTypeName",
+                              "src": "468:7:1",
+                              "stateMutability": "nonpayable",
+                              "typeDescriptions": {
+                                "typeIdentifier": "t_address",
+                                "typeString": "address"
+                              }
+                            },
+                            "visibility": "internal"
+                          }
+                        ],
+                        "id": 72,
+                        "initialValue": {
+                          "baseExpression": {
+                            "id": 69,
+                            "name": "tokenAddresses",
+                            "nodeType": "Identifier",
+                            "overloadedDeclarations": [],
+                            "referencedDeclaration": 43,
+                            "src": "484:14:1",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_array$_t_address_$dyn_memory_ptr",
+                              "typeString": "address[] memory"
+                            }
+                          },
+                          "id": 71,
+                          "indexExpression": {
+                            "id": 70,
+                            "name": "i",
+                            "nodeType": "Identifier",
+                            "overloadedDeclarations": [],
+                            "referencedDeclaration": 57,
+                            "src": "499:1:1",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_uint64",
+                              "typeString": "uint64"
+                            }
+                          },
+                          "isConstant": false,
+                          "isLValue": true,
+                          "isPure": false,
+                          "lValueRequested": false,
+                          "nodeType": "IndexAccess",
+                          "src": "484:17:1",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_address",
+                            "typeString": "address"
+                          }
+                        },
+                        "nodeType": "VariableDeclarationStatement",
+                        "src": "468:33:1"
+                      },
+                      {
+                        "assignments": [
+                          74
+                        ],
+                        "declarations": [
+                          {
+                            "constant": false,
+                            "id": 74,
+                            "mutability": "mutable",
+                            "name": "balance",
+                            "nameLocation": "524:7:1",
+                            "nodeType": "VariableDeclaration",
+                            "scope": 96,
+                            "src": "516:15:1",
+                            "stateVariable": false,
+                            "storageLocation": "default",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_uint256",
+                              "typeString": "uint256"
+                            },
+                            "typeName": {
+                              "id": 73,
+                              "name": "uint256",
+                              "nodeType": "ElementaryTypeName",
+                              "src": "516:7:1",
+                              "typeDescriptions": {
+                                "typeIdentifier": "t_uint256",
+                                "typeString": "uint256"
+                              }
+                            },
+                            "visibility": "internal"
+                          }
+                        ],
+                        "id": 81,
+                        "initialValue": {
+                          "arguments": [
+                            {
+                              "id": 79,
+                              "name": "walletAddress",
+                              "nodeType": "Identifier",
+                              "overloadedDeclarations": [],
+                              "referencedDeclaration": 40,
+                              "src": "557:13:1",
+                              "typeDescriptions": {
+                                "typeIdentifier": "t_address",
+                                "typeString": "address"
+                              }
+                            }
+                          ],
+                          "expression": {
+                            "argumentTypes": [
+                              {
+                                "typeIdentifier": "t_address",
+                                "typeString": "address"
+                              }
+                            ],
+                            "expression": {
+                              "arguments": [
+                                {
+                                  "id": 76,
+                                  "name": "token",
+                                  "nodeType": "Identifier",
+                                  "overloadedDeclarations": [],
+                                  "referencedDeclaration": 68,
+                                  "src": "540:5:1",
+                                  "typeDescriptions": {
+                                    "typeIdentifier": "t_address",
+                                    "typeString": "address"
+                                  }
+                                }
+                              ],
+                              "expression": {
+                                "argumentTypes": [
+                                  {
+                                    "typeIdentifier": "t_address",
+                                    "typeString": "address"
+                                  }
+                                ],
+                                "id": 75,
+                                "name": "ERC20",
+                                "nodeType": "Identifier",
+                                "overloadedDeclarations": [],
+                                "referencedDeclaration": 33,
+                                "src": "534:5:1",
+                                "typeDescriptions": {
+                                  "typeIdentifier": "t_type$_t_contract$_ERC20_$33_$",
+                                  "typeString": "type(contract ERC20)"
+                                }
+                              },
+                              "id": 77,
+                              "isConstant": false,
+                              "isLValue": false,
+                              "isPure": false,
+                              "kind": "typeConversion",
+                              "lValueRequested": false,
+                              "nameLocations": [],
+                              "names": [],
+                              "nodeType": "FunctionCall",
+                              "src": "534:12:1",
+                              "tryCall": false,
+                              "typeDescriptions": {
+                                "typeIdentifier": "t_contract$_ERC20_$33",
+                                "typeString": "contract ERC20"
+                              }
+                            },
+                            "id": 78,
+                            "isConstant": false,
+                            "isLValue": false,
+                            "isPure": false,
+                            "lValueRequested": false,
+                            "memberLocation": "547:9:1",
+                            "memberName": "balanceOf",
+                            "nodeType": "MemberAccess",
+                            "referencedDeclaration": 32,
+                            "src": "534:22:1",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_function_external_view$_t_address_$returns$_t_uint256_$",
+                              "typeString": "function (address) view external returns (uint256)"
+                            }
+                          },
+                          "id": 80,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "kind": "functionCall",
+                          "lValueRequested": false,
+                          "nameLocations": [],
+                          "names": [],
+                          "nodeType": "FunctionCall",
+                          "src": "534:37:1",
+                          "tryCall": false,
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_uint256",
+                            "typeString": "uint256"
+                          }
+                        },
+                        "nodeType": "VariableDeclarationStatement",
+                        "src": "516:55:1"
+                      },
+                      {
+                        "assignments": [
+                          84
+                        ],
+                        "declarations": [
+                          {
+                            "constant": false,
+                            "id": 84,
+                            "mutability": "mutable",
+                            "name": "tokenAmount",
+                            "nameLocation": "600:11:1",
+                            "nodeType": "VariableDeclaration",
+                            "scope": 96,
+                            "src": "586:25:1",
+                            "stateVariable": false,
+                            "storageLocation": "memory",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_struct$_Amount_$38_memory_ptr",
+                              "typeString": "struct TokenBalances.Amount"
+                            },
+                            "typeName": {
+                              "id": 83,
+                              "nodeType": "UserDefinedTypeName",
+                              "pathNode": {
+                                "id": 82,
+                                "name": "Amount",
+                                "nameLocations": [
+                                  "586:6:1"
+                                ],
+                                "nodeType": "IdentifierPath",
+                                "referencedDeclaration": 38,
+                                "src": "586:6:1"
+                              },
+                              "referencedDeclaration": 38,
+                              "src": "586:6:1",
+                              "typeDescriptions": {
+                                "typeIdentifier": "t_struct$_Amount_$38_storage_ptr",
+                                "typeString": "struct TokenBalances.Amount"
+                              }
+                            },
+                            "visibility": "internal"
+                          }
+                        ],
+                        "id": 89,
+                        "initialValue": {
+                          "arguments": [
+                            {
+                              "id": 86,
+                              "name": "token",
+                              "nodeType": "Identifier",
+                              "overloadedDeclarations": [],
+                              "referencedDeclaration": 68,
+                              "src": "621:5:1",
+                              "typeDescriptions": {
+                                "typeIdentifier": "t_address",
+                                "typeString": "address"
+                              }
+                            },
+                            {
+                              "id": 87,
+                              "name": "balance",
+                              "nodeType": "Identifier",
+                              "overloadedDeclarations": [],
+                              "referencedDeclaration": 74,
+                              "src": "628:7:1",
+                              "typeDescriptions": {
+                                "typeIdentifier": "t_uint256",
+                                "typeString": "uint256"
+                              }
+                            }
+                          ],
+                          "expression": {
+                            "argumentTypes": [
+                              {
+                                "typeIdentifier": "t_address",
+                                "typeString": "address"
+                              },
+                              {
+                                "typeIdentifier": "t_uint256",
+                                "typeString": "uint256"
+                              }
+                            ],
+                            "id": 85,
+                            "name": "Amount",
+                            "nodeType": "Identifier",
+                            "overloadedDeclarations": [],
+                            "referencedDeclaration": 38,
+                            "src": "614:6:1",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_type$_t_struct$_Amount_$38_storage_ptr_$",
+                              "typeString": "type(struct TokenBalances.Amount storage pointer)"
+                            }
+                          },
+                          "id": 88,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "kind": "structConstructorCall",
+                          "lValueRequested": false,
+                          "nameLocations": [],
+                          "names": [],
+                          "nodeType": "FunctionCall",
+                          "src": "614:22:1",
+                          "tryCall": false,
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_struct$_Amount_$38_memory_ptr",
+                            "typeString": "struct TokenBalances.Amount memory"
+                          }
+                        },
+                        "nodeType": "VariableDeclarationStatement",
+                        "src": "586:50:1"
+                      },
+                      {
+                        "expression": {
+                          "id": 94,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "lValueRequested": false,
+                          "leftHandSide": {
+                            "baseExpression": {
+                              "id": 90,
+                              "name": "tokenAmounts",
+                              "nodeType": "Identifier",
+                              "overloadedDeclarations": [],
+                              "referencedDeclaration": 54,
+                              "src": "651:12:1",
+                              "typeDescriptions": {
+                                "typeIdentifier": "t_array$_t_struct$_Amount_$38_memory_ptr_$dyn_memory_ptr",
+                                "typeString": "struct TokenBalances.Amount memory[] memory"
+                              }
+                            },
+                            "id": 92,
+                            "indexExpression": {
+                              "id": 91,
+                              "name": "i",
+                              "nodeType": "Identifier",
+                              "overloadedDeclarations": [],
+                              "referencedDeclaration": 57,
+                              "src": "664:1:1",
+                              "typeDescriptions": {
+                                "typeIdentifier": "t_uint64",
+                                "typeString": "uint64"
+                              }
+                            },
+                            "isConstant": false,
+                            "isLValue": true,
+                            "isPure": false,
+                            "lValueRequested": true,
+                            "nodeType": "IndexAccess",
+                            "src": "651:15:1",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_struct$_Amount_$38_memory_ptr",
+                              "typeString": "struct TokenBalances.Amount memory"
+                            }
+                          },
+                          "nodeType": "Assignment",
+                          "operator": "=",
+                          "rightHandSide": {
+                            "id": 93,
+                            "name": "tokenAmount",
+                            "nodeType": "Identifier",
+                            "overloadedDeclarations": [],
+                            "referencedDeclaration": 84,
+                            "src": "669:11:1",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_struct$_Amount_$38_memory_ptr",
+                              "typeString": "struct TokenBalances.Amount memory"
+                            }
+                          },
+                          "src": "651:29:1",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_struct$_Amount_$38_memory_ptr",
+                            "typeString": "struct TokenBalances.Amount memory"
+                          }
+                        },
+                        "id": 95,
+                        "nodeType": "ExpressionStatement",
+                        "src": "651:29:1"
+                      }
+                    ]
+                  },
+                  "condition": {
+                    "commonType": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    },
+                    "id": 63,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftExpression": {
+                      "id": 60,
+                      "name": "i",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 57,
+                      "src": "421:1:1",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_uint64",
+                        "typeString": "uint64"
+                      }
+                    },
+                    "nodeType": "BinaryOperation",
+                    "operator": "<",
+                    "rightExpression": {
+                      "expression": {
+                        "id": 61,
+                        "name": "tokenAddresses",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 43,
+                        "src": "425:14:1",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_array$_t_address_$dyn_memory_ptr",
+                          "typeString": "address[] memory"
+                        }
+                      },
+                      "id": 62,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": false,
+                      "lValueRequested": false,
+                      "memberLocation": "440:6:1",
+                      "memberName": "length",
+                      "nodeType": "MemberAccess",
+                      "src": "425:21:1",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_uint256",
+                        "typeString": "uint256"
+                      }
+                    },
+                    "src": "421:25:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bool",
+                      "typeString": "bool"
+                    }
+                  },
+                  "id": 97,
+                  "initializationExpression": {
+                    "assignments": [
+                      57
+                    ],
+                    "declarations": [
+                      {
+                        "constant": false,
+                        "id": 57,
+                        "mutability": "mutable",
+                        "name": "i",
+                        "nameLocation": "414:1:1",
+                        "nodeType": "VariableDeclaration",
+                        "scope": 97,
+                        "src": "407:8:1",
+                        "stateVariable": false,
+                        "storageLocation": "default",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_uint64",
+                          "typeString": "uint64"
+                        },
+                        "typeName": {
+                          "id": 56,
+                          "name": "uint64",
+                          "nodeType": "ElementaryTypeName",
+                          "src": "407:6:1",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_uint64",
+                            "typeString": "uint64"
+                          }
+                        },
+                        "visibility": "internal"
+                      }
+                    ],
+                    "id": 59,
+                    "initialValue": {
+                      "hexValue": "30",
+                      "id": 58,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": true,
+                      "kind": "number",
+                      "lValueRequested": false,
+                      "nodeType": "Literal",
+                      "src": "418:1:1",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_rational_0_by_1",
+                        "typeString": "int_const 0"
+                      },
+                      "value": "0"
+                    },
+                    "nodeType": "VariableDeclarationStatement",
+                    "src": "407:12:1"
+                  },
+                  "loopExpression": {
+                    "expression": {
+                      "id": 65,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": false,
+                      "lValueRequested": false,
+                      "nodeType": "UnaryOperation",
+                      "operator": "++",
+                      "prefix": false,
+                      "src": "448:3:1",
+                      "subExpression": {
+                        "id": 64,
+                        "name": "i",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 57,
+                        "src": "448:1:1",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_uint64",
+                          "typeString": "uint64"
+                        }
+                      },
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_uint64",
+                        "typeString": "uint64"
+                      }
+                    },
+                    "id": 66,
+                    "nodeType": "ExpressionStatement",
+                    "src": "448:3:1"
+                  },
+                  "nodeType": "ForStatement",
+                  "src": "402:291:1"
+                },
+                {
+                  "expression": {
+                    "id": 98,
+                    "name": "tokenAmounts",
+                    "nodeType": "Identifier",
+                    "overloadedDeclarations": [],
+                    "referencedDeclaration": 54,
+                    "src": "710:12:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_array$_t_struct$_Amount_$38_memory_ptr_$dyn_memory_ptr",
+                      "typeString": "struct TokenBalances.Amount memory[] memory"
+                    }
+                  },
+                  "functionReturnParameters": 49,
+                  "id": 99,
+                  "nodeType": "Return",
+                  "src": "703:19:1"
+                }
+              ]
+            },
+            "functionSelector": "6a385ae9",
+            "id": 101,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [],
+            "name": "getBalances",
+            "nameLocation": "246:11:1",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 44,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 40,
+                  "mutability": "mutable",
+                  "name": "walletAddress",
+                  "nameLocation": "266:13:1",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 101,
+                  "src": "258:21:1",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 39,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "258:7:1",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 43,
+                  "mutability": "mutable",
+                  "name": "tokenAddresses",
+                  "nameLocation": "298:14:1",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 101,
+                  "src": "281:31:1",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_array$_t_address_$dyn_memory_ptr",
+                    "typeString": "address[]"
+                  },
+                  "typeName": {
+                    "baseType": {
+                      "id": 41,
+                      "name": "address",
+                      "nodeType": "ElementaryTypeName",
+                      "src": "281:7:1",
+                      "stateMutability": "nonpayable",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_address",
+                        "typeString": "address"
+                      }
+                    },
+                    "id": 42,
+                    "nodeType": "ArrayTypeName",
+                    "src": "281:9:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_array$_t_address_$dyn_storage_ptr",
+                      "typeString": "address[]"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "257:56:1"
+            },
+            "returnParameters": {
+              "id": 49,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 48,
+                  "mutability": "mutable",
+                  "name": "",
+                  "nameLocation": "-1:-1:-1",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 101,
+                  "src": "335:15:1",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_array$_t_struct$_Amount_$38_memory_ptr_$dyn_memory_ptr",
+                    "typeString": "struct TokenBalances.Amount[]"
+                  },
+                  "typeName": {
+                    "baseType": {
+                      "id": 46,
+                      "nodeType": "UserDefinedTypeName",
+                      "pathNode": {
+                        "id": 45,
+                        "name": "Amount",
+                        "nameLocations": [
+                          "335:6:1"
+                        ],
+                        "nodeType": "IdentifierPath",
+                        "referencedDeclaration": 38,
+                        "src": "335:6:1"
+                      },
+                      "referencedDeclaration": 38,
+                      "src": "335:6:1",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_struct$_Amount_$38_storage_ptr",
+                        "typeString": "struct TokenBalances.Amount"
+                      }
+                    },
+                    "id": 47,
+                    "nodeType": "ArrayTypeName",
+                    "src": "335:8:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_array$_t_struct$_Amount_$38_storage_$dyn_storage_ptr",
+                      "typeString": "struct TokenBalances.Amount[]"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "334:17:1"
+            },
+            "scope": 102,
+            "src": "237:493:1",
+            "stateMutability": "view",
+            "virtual": false,
+            "visibility": "public"
+          }
+        ],
+        "scope": 103,
+        "src": "125:608:1",
+        "usedErrors": []
+      }
+    ],
+    "src": "0:733:1"
+  },
+  "compiler": {
+    "name": "solc",
+    "version": "0.8.17+commit.8df45f5f.Emscripten.clang"
+  },
+  "networks": {},
+  "schemaVersion": "3.4.10",
+  "updatedAt": "2022-10-25T04:55:02.883Z",
+  "devdoc": {
+    "kind": "dev",
+    "methods": {},
+    "version": 1
+  },
+  "userdoc": {
+    "kind": "user",
+    "methods": {},
+    "version": 1
+  }
+}
